@@ -11,7 +11,7 @@ import __dirname from "./utils/utils.js";
 import mongoose from "mongoose";
 
 const app = express();
-const PORT = 27017;
+const PORT = 8080;
 
 mongoose
   .connect(

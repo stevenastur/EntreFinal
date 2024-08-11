@@ -44,8 +44,9 @@ function addProductToList(product) {
                 <div class="d-flex justify-content-between align-items-center">
                     <div>
                         <button class="btn btn-sm btn-primary" onclick="viewDetails('${product._id}')">See more..</button>
-                        <button class="btn btn-sm btn-danger" onclick="confirmRemoveProduct('${product._id}')">Erase</button>
-                        <button class="btn btn-sm btn-success" onclick="promptAddToCart('${product._id}')">Add to Cart</button>
+                        <button class="btn btn-sm btn-danger" onclick="confirmRemoveProduct('${product._id}')">Eliminate</button>
+                        <button class="btn btn-sm btn-success" onclick="addToCart('${product._id}', 1)">Add to Cart</button>
+                        <button class="btn btn-sm btn-danger" onclick="removeFromCart('${product._id}', 1)">Remove from Cart</button>
                     </div>
                 </div>
             </div>
@@ -89,9 +90,9 @@ function updateCartList(cart) {
                         }">${item.quantity}</span>
                     </div>
                     <div>
-                        <button class="btn btn-sm btn-danger" onclick="promptRemoveFromCart('${
+                        <button class="btn btn-sm btn-danger" onclick="removeFromCart('${
                           product._id
-                        }')">Remove</button>
+                        }', 1)">Remove</button>
                     </div>
                 </div>`;
       cartList.appendChild(cartItem);
@@ -139,7 +140,7 @@ function promptRemoveFromCart(productId) {
 function confirmRemoveProduct(productId) {
   Swal.fire({
     title:
-      "You are going to erase the selected product from the DDBB, is that correct?",
+      "You are going to eliminate the selected product from the DDBB, is that correct?",
     showCancelButton: true,
     confirmButtonText: "Yes, delete it",
     cancelButtonText: "No, keep it",
@@ -150,7 +151,7 @@ function confirmRemoveProduct(productId) {
   });
 }
 
-function addToCart(productId, quantity) {
+function addToCart(productId, quantity = 1) {
   fetch(`/api/carts/add/${productId}`, {
     method: "POST",
     headers: {
@@ -186,7 +187,7 @@ function removeProduct(id) {
     .catch((err) => console.error("Error removing product:", err));
 }
 
-function removeFromCart(productId, quantity) {
+function removeFromCart(productId, quantity = 1) {
   if (!productId) {
     console.error("Product ID is undefined");
     return;

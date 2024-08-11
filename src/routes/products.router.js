@@ -138,7 +138,7 @@ const configureRouter = (io) => {
         io.emit("cartUpdated"); // Emitir evento para actualizar los carritos
         res
           .status(200)
-          .json({ msg: `Id product: ${req.params.pid} successfully erased` });
+          .json({ msg: `Id product: ${req.params.pid} successfully eliminated` });
       } else {
         res.status(404).json({ msg: "Product not found" });
       }
