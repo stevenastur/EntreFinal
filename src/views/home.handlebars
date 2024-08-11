@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product and Cart List</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container">
+        <h1 class="mt-5">Products</h1>
+        <form id="productForm" class="mt-3">
+            <div class="form-group">
+                <label for="title">Title:</label>
+                <input type="text" class="form-control" id="title" name="title" placeholder="Format: Cleaner desirednumber" required>
+            </div>
+            <div class="form-group">
+                <label for="description">Description:</label>
+                <input type="text" class="form-control" id="description" name="description" placeholder="Format: Description Cleaner desirednumber" required>
+            </div>
+            <div class="form-group">
+                <label for="code">Code:</label>
+                <input type="text" class="form-control" id="code" name="code" placeholder="Format: CNR-desirednumber" required>
+            </div>
+            <div class="form-group">
+                <label for="price">Price:</label>
+                <input type="number" class="form-control" id="price" name="price" placeholder="Format: Integer number" required>
+            </div>
+            <div class="form-group">
+                <label for="stock">Stock:</label>
+                <input type="number" class="form-control" id="stock" name="stock" placeholder="Format: Integer number" required>
+            </div>
+            <div class="form-group">
+                <label for="category">Category:</label>
+                <input type="text" class="form-control" id="category" name="category" placeholder="Format: Laundry" required>
+            </div>
+            <div class="form-group">
+                <label for="thumbnails">Thumbnails:</label>
+                <input type="text" class="form-control" id="thumbnails" name="thumbnails">
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+
+        <div id="productsList" class="mt-5">
+            <h3>Products List</h3>
+            <div class="row" id="products"></div>
+            <div id="pagination-controls" class="mt-3"></div>
+        </div>
+
+        <h1 class="mt-5">Carts</h1>
+        <div id="cart" class="mt-3">
+            <ul class="list-group" id="cart-items">
+            </ul>
+            <p id="empty-cart" style="display: none;">No products in cart</p>
+            <button class="btn btn-danger mt-3" onclick="clearCart()">Clear Cart</button>
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+    <script src="/js/index.js"></script>
+</body>
+</html>
